@@ -58,6 +58,7 @@ def yolov8_inference(
     results = model.predict(image, imgsz=image_size, return_outputs=True)
     renders = []
     for image_results in model.predict(image, imgsz=image_size, return_outputs=True):
+        print(image_results)
         render = render_model_output(
             model=model, image=image, model_output=image_results
         )
