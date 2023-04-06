@@ -1,4 +1,4 @@
 sahi
 torch
-ultralytics==8.0.6
-ultralyticsplus==0.0.9
+ultralytics==8.0.43
+ultralyticsplus==0.0.28
