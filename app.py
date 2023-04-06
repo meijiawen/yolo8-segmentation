@@ -66,6 +66,8 @@ def visualize_masks(masks):
 def yolov8_inference(
     image = None,
     model_name = None,
+    dest_width = 512,
+    dest_height = 512,
     image_size = 640,
     conf_threshold = 0.25,
     iou_threshold = 0.45,
@@ -92,12 +94,12 @@ def yolov8_inference(
     results = model.predict(image)
     renders = []
     for image_results in model.predict(image):
-        print("predict results:  ",type(image_results.masks))
+        #print("predict results:  ",type(image_results.masks))
         #render = render_result(
         #    model=model, image=image, result=image_results
         #)
         render = visualize_masks(image_results.masks.data)
-        
+        render = render.resize((dest_width,dest_height))
         renders.append(render)
 
     return renders[0]
@@ -109,6 +111,9 @@ inputs = [
         value=current_model_name,
         label="Model type",
     ),
+    gr.inputs.Slider(minimum=128, maximum=2048, step=64, default=512, label="Width"),
+    gr.inputs.Slider(minimum=128, maximum=2048, step=64, default=512, label="Height"),
+
     gr.Slider(minimum=320, maximum=1280, value=640, step=32, label="Image Size"),
     gr.Slider(
         minimum=0.0, maximum=1.0, value=0.25, step=0.05, label="Confidence Threshold"
