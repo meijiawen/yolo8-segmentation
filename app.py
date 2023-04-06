@@ -122,7 +122,7 @@ inputs = [
 ]
 
 outputs = gr.Image(type="filepath", label="Output Image")
-title = "Ultralytics YOLOv8 Segmentation Demo"
+title = "Ultralytics YOLOv8 Segmentation For Person Only Now"
 
 
 examples = [
