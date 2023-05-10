@@ -5,7 +5,7 @@ from ultralyticsplus import YOLO, render_result
 import numpy as np
 from PIL import Image
 
-# Images
+# Images1
 sahi.utils.file.download_from_url(
     "https://raw.githubusercontent.com/kadirnar/dethub/main/data/images/highway.jpg",
     "highway.jpg",
